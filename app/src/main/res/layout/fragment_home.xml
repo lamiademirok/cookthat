@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--Page should be scrollable so users will be able to see the
+     categories completely.-->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contraint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Header where the app name, search bar and motto appears-->
+            <LinearLayout
+                android:id="@+id/header"
+                android:layout_width="390dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/myfontinter"
+                    android:text="CookThat"
+                    android:textColor="@color/accent"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/img_search"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="100dp"
+                    android:text="Lamia Demirok
+                    2020502315"
+                    android:scaleType="centerCrop"
+                    android:gravity="right"
+                    />
+
+            </LinearLayout>
+
+    <TextView
+        android:id="@+id/find_recipe_text"
+        android:layout_width="241dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/myfontinter"
+        android:text="Click for recipe:"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header" />
+
+            <!-- Card view that shows random recipe photos-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/meal_banner"
+                android:layout_width="372dp"
+                android:layout_height="234dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:elevation="2dp"
+                app:cardCornerRadius="10dp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/find_recipe_text">
+
+                <ImageView
+                    android:id="@+id/img_meal_banner"
+                    android:layout_width="372dp"
+                    android:scaleType="centerCrop"
+                    android:layout_height="match_parent"
+                    android:background="@color/accent" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- List of cuisine types-->
+    <TextView
+        android:id="@+id/category_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/myfontinter"
+        android:text="Categories"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/meal_banner"
+        app:layout_constraintTop_toBottomOf="@id/meal_banner" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/category_card"
+                android:layout_width="372dp"
+                android:layout_height="500dp"
+                android:layout_marginTop="10dp"
+                android:elevation="2dp"
+                app:cardCornerRadius="10dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintStart_toStartOf="@id/meal_banner"
+                app:layout_constraintTop_toBottomOf="@id/category_text">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/cuisine_list"
+                    android:layout_width="367dp"
+                    android:layout_height="500dp"
+                    android:scrollbars="none" />
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
